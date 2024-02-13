@@ -20,15 +20,9 @@ export class Pixi {
     });
 
     constructor() {
+        // This is actually to make HMR work
         import('pixi.js').then((PIXI) => {
             this.PIXI.set(PIXI);
         });
-    }
-
-    ngOnDestroy() {
-        const app = this.internalApp();
-        if (!app || !('destroy' in app)) return;
-
-        app.destroy();
     }
 }
